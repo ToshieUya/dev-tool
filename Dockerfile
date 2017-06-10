@@ -53,7 +53,8 @@ RUN curl -s http://getcomposer.org/installer | php && \
 #####################################
 RUN composer global require \
     squizlabs/php_codesniffer \
-    phpmd/phpmd
+    phpmd/phpmd \
+    phpspec/phpspec
 
 ENV PATH=$PATH:/root/.composer/vendor/bin
 
