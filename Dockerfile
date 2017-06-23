@@ -20,7 +20,7 @@ RUN apt-get install -y software-properties-common && \
 
 # Install "PHP Extentions", "libraries", "Software's"
 RUN apt-get update && \
-    apt-get install -y --force-yes \
+    apt-get install -y --assume-yes \
         php7.1-cli \
         php7.1-common \
         php7.1-curl \
@@ -48,6 +48,9 @@ RUN apt-get update && \
 # Install composer and add its bin to the PATH.
 RUN curl -s http://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
+
+# Install composer plugin for concurrency
+RUN composer global require hirak/prestissimo
 
 #####################################
 # PHPCS and PHPMD:
