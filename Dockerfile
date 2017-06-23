@@ -49,6 +49,9 @@ RUN apt-get update && \
 RUN curl -s http://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
+# Install composer plugin for concurrency
+RUN composer global require hirak/prestissimo
+
 #####################################
 # PHPCS and PHPMD:
 #####################################
